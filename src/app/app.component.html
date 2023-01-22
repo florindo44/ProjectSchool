@@ -1,0 +1,39 @@
+<mat-sidenav-container>
+  <mat-sidenav
+    class="sidenav mat-elevation-z2"
+    #sidenav
+    [opened]="!isSmallScreen"
+    [fixedInViewport]="true"
+    [mode]="sidenavMode"
+  >
+    <mat-toolbar>
+      <img class="avatar mat-elevation-z4" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+      <a routerLink="/profile" class="name">Vinícius Andrade</a>
+      <p class="designation">Senior Software Engineer</p>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+        <a *ngFor="let item of items_menu" mat-menu-item [routerLink]="item.link" routerLinkActive="active">
+          <mat-icon>{{item.icon}}</mat-icon>
+          <span>{{item.label}}</span>
+        </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-toolbar-menu
+      [menuTitle]="menuName"
+      [shadow]="applyShadow"
+      [popText]="popText"
+      [menuItems]="items_menu">
+    </app-toolbar-menu>
+    <mat-toolbar class="toolbar-submenu" color="primary">
+      <span class="title" *ngIf="!popText">{{this.menuName}}</span>
+    </mat-toolbar>
+
+    <div class="content mat-elevation-z4">
+      <router-outlet></router-outlet>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,21 @@
+:host {
+  display: contents;
+}
+
+.toolbar-menu {
+  position: fixed;
+  font-size: 1rem;
+  top: 0;
+  z-index: 1001;
+  height: 64px !important;
+}
+
+.content-center {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto !important;
+}
+
+.space-right-icon {
+  margin-right: 10px;
+}
