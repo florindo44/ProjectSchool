@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./course-list.component.scss']
 })
 export class CourseListComponent implements OnInit {
-
+  public courseList = [...Array(15).keys()];
   constructor() { }
 
   ngOnInit() {
