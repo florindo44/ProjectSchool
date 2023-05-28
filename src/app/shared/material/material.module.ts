@@ -14,7 +14,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'
-import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
@@ -37,7 +36,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatMomentDateModule,
     MatSnackBarModule,
     MatDialogModule,
     MatDividerModule,
