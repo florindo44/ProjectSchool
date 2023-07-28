@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { UsersComponent } from './users.component';
-import { ProfileComponent } from './profile/profile.component';
+import { MyProfileComponent } from './myProfile/myProfile.component';
 import { UsersRoutingModule } from './users-routing.module';
-import { UsersMaterialModule } from '@app/shared/material/usersMat.module';
+import { UsersMaterialModule } from '@app/shared/material/users-mat.module';
 import { SharedModule } from '@app/shared/shared.module';
-import { MyCoursesComponent } from './myCourses/myCourses.component';
+import { MyDisciplinesComponent } from './myDisciplines/myDisciplines.component';
 import { MyConquestsComponent } from './myConquests/myConquests.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
     UsersComponent,
-    ProfileComponent,
-    MyCoursesComponent,
+    MyProfileComponent,
+    MyDisciplinesComponent,
     MyConquestsComponent
   ],
   imports: [

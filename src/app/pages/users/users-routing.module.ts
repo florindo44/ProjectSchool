@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
+import { MyProfileComponent } from './myProfile/myProfile.component';
 import { UsersComponent } from './users.component';
-import { MyCoursesComponent } from './myCourses/myCourses.component';
+import { MyDisciplinesComponent } from './myDisciplines/myDisciplines.component';
 import { MyConquestsComponent } from './myConquests/myConquests.component';
 
 const routes: Routes = [
@@ -14,15 +14,15 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'profile'
+        redirectTo: 'myProfile'
       },
       {
-        path: 'profile',
-        component: ProfileComponent
+        path: 'myProfile',
+        component: MyProfileComponent,
       },
       {
-        path: 'myCourses',
-        component: MyCoursesComponent
+        path: 'myDisciplines',
+        component: MyDisciplinesComponent
       },
       {
         path: 'myConquests',

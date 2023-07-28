@@ -2,12 +2,34 @@
   display: contents;
 }
 
+.logo {
+  .mat-icon {
+    margin: 10px 10px 8px -10px;
+    font-size: 18px;
+  }
+}
+
+.title {
+  font-size: 20px;
+}
+
+.mat-menu-item {
+  .mat-icon {
+    margin-top: 5px;
+    font-size: 18px;
+  }
+}
+
 .toolbar-menu {
   position: fixed;
   font-size: 1rem;
   top: 0;
-  z-index: 1001;
+  color: white;
+  z-index: 1000;
   height: 64px !important;
+  background-color: #666666;
+  border-bottom: 1px solid #707070;
+  text-shadow: 2px 1px 3px #323232;
 }
 
 .content-center {

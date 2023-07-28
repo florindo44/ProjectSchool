@@ -1,0 +1,85 @@
+<div>
+  <app-titlebar title="listagem" icon="list">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    </button>
+  </app-titlebar>
+  <div fxLayout="row" fxLayoutAlign="center">
+    <div fxFlex="80">
+      <form [formGroup]="supportForm" class="formContainer">
+        <div fxLayout="row" fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="15px">
+          <mat-form-field fxFlex>
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="frm.name.hasError('required')">
+              Nome é <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-label>E-mail</mat-label>
+            <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="frm.email.hasError('email') && !frm.email.hasError('required')">
+              Entre com e-mail válido.
+            </mat-error>
+            <mat-error *ngIf="frm.email.hasError('required')">
+              E-mail é <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-label>Telefone</mat-label>
+            <input matInput formControlName="telephone">
+            <mat-error *ngIf="frm.telephone.hasError('required')">
+              Telefone é <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayout.md="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="15px">
+          <mat-form-field fxFlex>
+            <mat-label>Classificação</mat-label>
+            <mat-select matNativeControl>
+              <mat-option value="1">Não urgente</mat-option>
+              <mat-option value="2">Pouco urgente</mat-option>
+              <mat-option value="3">Urgente</mat-option>
+              <mat-option value="4">Muito Urgente</mat-option>
+              <mat-option value="5">Emergência</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-label>Categoria</mat-label>
+            <mat-select matNativeControl>
+              <mat-optgroup label="Disciplina">
+                <mat-option value="1">Matrícula</mat-option>
+                <mat-option value="2">Disciplina Inexistente</mat-option>
+                <mat-option value="3">Nome Errado</mat-option>
+                <mat-option value="4">Sem Professor</mat-option>
+                <mat-option value="5">Sem Carga Horária</mat-option>
+              </mat-optgroup>
+              <mat-optgroup label="Error no sistema">
+                <mat-option value="6">Erro: Professor</mat-option>
+                <mat-option value="7">Erro: Aluno</mat-option>
+                <mat-option value="8">Erro: Curso</mat-option>
+                <mat-option value="9">Erro: Disciplina</mat-option>
+              </mat-optgroup>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex>
+            <mat-label>Me responda por</mat-label>
+            <mat-select multiple>
+              <mat-option value="1">Telefone</mat-option>
+              <mat-option value="2">Email</mat-option>
+              <mat-option value="3">Rede Social</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field fxFlex>
+            <mat-label>Descrição</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+            <mat-error *ngIf="frm.description.hasError('required')">
+              Descrição é <strong>obrigatório</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -5,11 +5,11 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { SidenavService } from '@app/services/sidenav.service';
 import { MENU_ITEM } from './shared/model/menuItem';
 import { menuItems } from './shared/model/menu';
-import { NavigationEnd, NavigationStart, Router, ActivatedRoute, ActivatedRouteSnapshot, RouterEvent } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 export const SCROLL_CONTAINER = 'mat-sidenav-content';
 export const TEXT_LIMIT = 50;
-export const SHADOW_LIMIT = 100;
 
 @Component({
   selector: 'app-root',
@@ -20,19 +20,22 @@ export class AppComponent implements OnInit, AfterViewInit{
   @ViewChild('sidenav') public sidenav!: MatSidenav;
   public isSmallScreen = false;
   public popText = false;
-  public applyShadow = false;
+  public hideNavigations = true;
   public menuName = '';
   public items_menu: MENU_ITEM[] = menuItems;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private sidenavService: SidenavService,
-    private router : Router,
-    private route: ActivatedRoute
+    public sidenavService: SidenavService,
+    private router : Router
   ) { }
 
   ngAfterViewInit(): void {
-    this.sidenavService.setSidenav(this.sidenav);
+    this.sidenavService.setSidenav = this.sidenav;
+  }
+
+  public get sidenavSituation() {
+    return (this.sidenavService.getSidenav != undefined) ? this.sidenavService.getSidenav.opened : true
   }
 
   ngOnInit(): void {
@@ -47,15 +50,22 @@ export class AppComponent implements OnInit, AfterViewInit{
       map(event => event as NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
       let moduleName = event.url.split('/')[1];
-      this.menuName = this.items_menu.filter(
-        (item: MENU_ITEM) => item.link == `/${moduleName}`
-      )[0].label;
+
+      // if(event.url.split('/').includes('auth')) {
+      //   this.hideNavigations = false;
+      //   this.menuName = '';
+      // } else {
+        this.menuName = this.items_menu.filter(
+          (item: MENU_ITEM) => item.link == `/${moduleName}`
+        )[0].label;
+
+      //   this.hideNavigations = true;
+      // }
     })
   }
 
   determineHeader(scrollTop: number) {
     this.popText = scrollTop >= TEXT_LIMIT;
-    this.applyShadow = scrollTop >= SHADOW_LIMIT;
   }
 
   ngAfterContentInit(): void {

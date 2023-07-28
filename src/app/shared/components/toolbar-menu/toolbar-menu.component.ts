@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SidenavService } from '@app/services/sidenav.service';
 import { MENU_ITEM } from '../../model/menuItem';
 
@@ -7,19 +7,12 @@ import { MENU_ITEM } from '../../model/menuItem';
   templateUrl: './toolbar-menu.component.html',
   styleUrls: ['./toolbar-menu.component.scss']
 })
-export class ToolbarMenuComponent implements OnInit {
+export class ToolbarMenuComponent {
   @Input() shadow = false;
   @Input() popText = false;
   @Input() menuTitle = '';
   @Input() menuItems: MENU_ITEM[] = [];
 
-  constructor(private sidenav: SidenavService) { }
-
-  ngOnInit() {
-  }
-
-  toggleRightSidenav() {
-    this.sidenav.toggle();
-  }
+  constructor() {}
 
 }

@@ -31,4 +31,4 @@ import { ToolbarMenuComponent } from './shared/components/toolbar-menu/toolbar-m
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,7 +4,7 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
@@ -14,6 +14,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
@@ -21,6 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   exports: [
@@ -36,13 +38,15 @@ import { MatMenuModule } from '@angular/material/menu';
     MatTabsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatMomentDateModule,
     MatSnackBarModule,
     MatDialogModule,
     MatDividerModule,
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTooltipModule
   ],
   declarations: [],
   providers: [
@@ -63,4 +67,8 @@ import { MatMenuModule } from '@angular/material/menu';
     }
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+  constructor(matIconRegistry: MatIconRegistry) {
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+  }
+}

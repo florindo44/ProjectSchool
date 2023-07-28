@@ -1,24 +1,29 @@
 import { MENU_ITEM } from './menuItem';
 
 export const menuItems: MENU_ITEM[] = [
-    {
-      "link": "/users",
-      "icon": "person",
-      "label": "Perfil"
-    },
-    {
-      "link": "/courses",
-      "icon": "school",
-      "label": "Cursos"
-    },
-    {
-      "link": "/journey",
-      "icon": "cast_for_education",
-      "label": "Jornadas"
-    },
-    {
-      "link": "/support",
-      "icon": "headset_mic",
-      "label": "Suporte"
-    }
-]
+  {
+    link: '/dashboard',
+    icon: 'fa-chart-line',
+    label: 'Dashboard',
+  },
+  {
+    link: '/courses',
+    icon: 'fa-graduation-cap',
+    label: 'Cursos',
+  },
+  {
+    link: '/teachers',
+    icon: 'fa-person-chalkboard',
+    label: 'Professores',
+  },
+  {
+    link: '/students',
+    icon: 'fa-chalkboard-user',
+    label: 'Alunos',
+  },
+  {
+    link: '/support',
+    icon: 'fa-headset',
+    label: 'Suporte',
+  },
+];
